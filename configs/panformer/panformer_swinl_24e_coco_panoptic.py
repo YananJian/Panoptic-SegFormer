@@ -12,7 +12,7 @@ model = dict(
     #print('DONE, swin-large was saved as checkpoints/swinl.pth')
     pretrained='./checkpoints/swinl.pth',
     backbone=dict(
-        type='SwinTransformer',
+        type='SwinTransformerORG',
         embed_dim=192,
         depths=[2, 2, 18, 2],
         num_heads=[6, 12, 24, 48],

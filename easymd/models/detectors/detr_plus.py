@@ -42,8 +42,8 @@ class DETR_plus(SingleStagePanopticDetector):
         """
         
         batch_size = len(img_metas)
-        assert batch_size == 1, 'Currently only batch_size 1 for inference ' \
-            f'mode is supported. Found batch_size {batch_size}.'
+        #assert batch_size == 1, 'Currently only batch_size 1 for inference ' \
+        #    f'mode is supported. Found batch_size {batch_size}.'
         x = self.extract_feat(img)
         outs = self.bbox_head(x, img_metas)
 

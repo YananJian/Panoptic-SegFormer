@@ -31,6 +31,12 @@ class SingleStagePanopticDetector(BaseDetector):
         super(SingleStagePanopticDetector, self).__init__(init_cfg)
         self.fp16_enabled = False
         backbone.pretrained = pretrained
+        if backbone.type == 'SwinTransformerORG':
+            delattr(backbone, 'depth')
+            delattr(backbone, 'num_stages')
+            delattr(backbone, 'norm_eval')
+            delattr(backbone, 'style')            
+            delattr(backbone, 'norm_cfg')            
         self.backbone = build_backbone(backbone)
         if neck is not None:
             self.neck = build_neck(neck)
